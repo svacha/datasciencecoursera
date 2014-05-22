@@ -1,0 +1,121 @@
+a <- available.packages()
+head(rownames(a),3)
+install.packages("ggplot2")
+library(ggplot2)
+search90
+search()
+install.packages("devtools")
+find.packages(devtools)
+find.package("devtools")
+library(devtools)
+find_rtools()
+install.packages("KernSmooth")
+library(KernSmooth)
+getwd()
+getwd()
+ls()
+source("myfunction.r")
+ls()
+ls()
+ls()
+source("myfunction.r")
+ls()
+second
+second(4)
+second(4)
+second(4)
+second(4)
+second(4)
+second(4)
+rnorm(1)
+rnorm(1)
+rnorm(1)
+rnorm(1)
+rnorm(1)
+rnorm(1)
+rnorm(1)
+rnorm(1)
+second(4:10)
+m <- matrix(nrow=2, ncol=3)
+m
+attributes(m)
+m<- 1:10
+m
+dim(m) <- c(2,5)
+m
+x <- factor(c("yes", "yes", "no","yes","no"))
+x
+table(x)
+attr(,"levels")
+attr(x,"levels")
+x <- data.frame(foo=1:4, bar=c(T,T,F,F))
+x
+nrow(x)
+ncol(x)
+x<-1:4
+y<-2:3
+x+y
+x<-1:5
+x+y
+x<- c(3,5,1,10,12,6)
+x[x<=5]<-0
+x
+data <- read.table('hw1_data.csv')
+data <- read.table("hw1_data.csv")
+data <- read.csv("hw1_data.csv")
+head(data)
+nrows(data)
+attributes(data)
+data[151:152]
+data[,151:152]
+data
+data[[-1]]
+data[[,-1]]
+data[[,151]]
+data[[151,]]
+data[[151,1]]
+data[[152,1]]
+data[[152:153,1:6]]
+data[[152:153,1]]
+data[[152,1]]
+data[152]
+data[[152]]
+data[47]
+data["Ozone"]
+data["Ozone"][47]
+data["Ozone"][[47]]
+is.na(data["Ozone"])
+is.na(data[["Ozone"]])
+table(is.na(data[["Ozone"]]))
+table(is.na(data["Ozone"]))
+bad = is.na(data["Ozone"])
+data["Ozone"][!bad]
+mean(data["Ozone"][!bad])
+mean(data["Ozone"][!bad])
+subset(data, Ozone>31, Temp > 90)
+data_sub = subset(data, Ozone>31, Temp > 90)
+mean(data_sub["Solar.R"])
+data_sub
+data_sub = subset(data, Ozone>31, Temp > 90, select=Solar.R)
+data_sub = subset(data, Ozone>31, select=c(Temp,Solar.R))
+data_sub
+data_sub2 = subset(data_sub, Temp>90, select=Solar.R)
+data_sub2
+mean(data_sub2)
+mean(data_sub2["Solar.R"])
+data_sub2["Solar.R"]
+data_sub2[["Solar.R"]]
+mean(data_sub2[["Solar.R"]])
+subset(data, Month==6, subset=Temp)
+subset(data, Month==6, select=Temp)
+mean(subset(data, Month==6, select=Temp))
+mean(subset(data, Month==6, select=Temp)["Temp"])
+mean(subset(data, Month==6, select=Temp)[["Temp"]])
+mean(subset(data, Month==5, select=Ozone)[["Ozone"]])
+subset(data, Month==5, select=Ozone)[["Ozone"]]
+max(subset(data, Month==5, select=Ozone)[["Ozone"]])
+which.max(subset(data, Month==5, select=Ozone)[["Ozone"]])
+max(subset(data, Month==5, select=Ozone)[["Ozone"]])
+max(subset(data, Month==5, select=Ozone)[["Ozone"]], na.rm=TRUE)
+data[c(152,153),1:6]
+clear

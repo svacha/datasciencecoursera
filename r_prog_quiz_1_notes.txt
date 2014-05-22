@@ -1,0 +1,889 @@
+
+R version 3.1.0 (2014-04-10) -- "Spring Dance"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.1.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.63 (6734) x86_64-apple-darwin13.1.0]
+
+[History restored from /Users/svacha/.Rapp.history]
+
+> install.packages("KernSmooth")
+--- Please select a CRAN mirror for use in this session ---
+trying URL 'http://cran.cnr.Berkeley.edu/bin/macosx/mavericks/contrib/3.1/KernSmooth_2.23-12.tgz'
+Content type 'application/x-gzip' length 91267 bytes (89 Kb)
+opened URL
+==================================================
+downloaded 89 Kb
+
+
+The downloaded binary packages are in
+	/var/folders/tl/xl5f6pyd3j95pmbt5hspfqk40000gn/T//RtmpMj74I7/downloaded_packages
+> library(KernSmooth)
+KernSmooth 2.23 loaded
+Copyright M. P. Wand 1997-2009
+> getwd()
+[1] "/Users/svacha"
+> getwd()
+[1] "/Users/svacha/Projects/datasciencecoursera"
+> ls()
+character(0)
+> source("myfunction.r")
+> ls()
+[1] "myfunction"
+> ls()
+[1] "myfunction"
+> ls()
+[1] "myfunction"
+> 
+> source("myfunction.r")
+> ls()
+[1] "myfunction" "second"    
+> second
+function(x) {
+	x + rnorm(length(x))
+}
+> second(4)
+[1] 4.730873
+> second(4)
+[1] 3.77991
+> second(4)
+[1] 4.947427
+> second(4)
+[1] 4.107022
+> second(4)
+[1] 4.553163
+> second(4)
+[1] 3.788173
+> rnorm(1)
+[1] 2.097965
+> rnorm(1)
+[1] -0.5016451
+> 
+> rnorm(1)
+[1] -0.9527546
+> rnorm(1)
+[1] 0.06915471
+> rnorm(1)
+[1] 0.9436993
+> rnorm(1)
+[1] -0.9951904
+> rnorm(1)
+[1] 0.6733259
+> rnorm(1)
+[1] 1.702633
+> second(4:10)
+[1] 4.655274 4.436069 5.920936 7.042412 6.588397 8.044133 9.745447
+> m <- matrix(nrow=2, ncol=3)
+> m
+     [,1] [,2] [,3]
+[1,]   NA   NA   NA
+[2,]   NA   NA   NA
+> attributes(m)
+$dim
+[1] 2 3
+
+> m<- 1:10
+> m
+ [1]  1  2  3  4  5  6  7  8  9 10
+> dim(m) <- c(2,5)
+> m
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    3    5    7    9
+[2,]    2    4    6    8   10
+> x <- factor(c("yes", "yes", "no","yes","no"))
+> x
+[1] yes yes no  yes no 
+Levels: no yes
+> table(x)
+x
+ no yes 
+  2   3 
+> attr(,"levels")
+Error in attr(, "levels") : argument 1 is empty
+> attr(x,"levels")
+[1] "no"  "yes"
+> x <- data.frame(foo=1:4, bar=c(T,T,F,F))
+> x
+  foo   bar
+1   1  TRUE
+2   2  TRUE
+3   3 FALSE
+4   4 FALSE
+> nrow(x)
+[1] 4
+> ncol(x)
+[1] 2
+> x<-1:4
+> y<-2:3
+> x+y
+[1] 3 5 5 7
+> x<-1:5
+> x+y
+[1] 3 5 5 7 7
+Warning message:
+In x + y : longer object length is not a multiple of shorter object length
+> x<- c(3,5,1,10,12,6)
+> x[x<=5]<-0
+> x
+[1]  0  0  0 10 12  6
+> data <- read.table('hw1_data.csv')
+Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
+  line 2 did not have 2 elements
+> data <- read.table("hw1_data.csv")
+Error in scan(file, what, nmax, sep, dec, quote, skip, nlines, na.strings,  : 
+  line 2 did not have 2 elements
+> data <- read.csv("hw1_data.csv")
+> head(data)
+  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5
+6    28      NA 14.9   66     5   6
+> nrows(data)
+Error: could not find function "nrows"
+> attributes(data)
+$names
+[1] "Ozone"   "Solar.R" "Wind"    "Temp"    "Month"   "Day"    
+
+$class
+[1] "data.frame"
+
+$row.names
+  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+ [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+ [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+ [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+ [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+ [91]  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108
+[109] 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126
+[127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
+[145] 145 146 147 148 149 150 151 152 153
+
+> data[151:152]
+Error in `[.data.frame`(data, 151:152) : undefined columns selected
+> data[,151:152]
+Error in `[.data.frame`(data, , 151:152) : undefined columns selected
+> data
+    Ozone Solar.R Wind Temp Month Day
+1      41     190  7.4   67     5   1
+2      36     118  8.0   72     5   2
+3      12     149 12.6   74     5   3
+4      18     313 11.5   62     5   4
+5      NA      NA 14.3   56     5   5
+6      28      NA 14.9   66     5   6
+7      23     299  8.6   65     5   7
+8      19      99 13.8   59     5   8
+9       8      19 20.1   61     5   9
+10     NA     194  8.6   69     5  10
+11      7      NA  6.9   74     5  11
+12     16     256  9.7   69     5  12
+13     11     290  9.2   66     5  13
+14     14     274 10.9   68     5  14
+15     18      65 13.2   58     5  15
+16     14     334 11.5   64     5  16
+17     34     307 12.0   66     5  17
+18      6      78 18.4   57     5  18
+19     30     322 11.5   68     5  19
+20     11      44  9.7   62     5  20
+21      1       8  9.7   59     5  21
+22     11     320 16.6   73     5  22
+23      4      25  9.7   61     5  23
+24     32      92 12.0   61     5  24
+25     NA      66 16.6   57     5  25
+26     NA     266 14.9   58     5  26
+27     NA      NA  8.0   57     5  27
+28     23      13 12.0   67     5  28
+29     45     252 14.9   81     5  29
+30    115     223  5.7   79     5  30
+31     37     279  7.4   76     5  31
+32     NA     286  8.6   78     6   1
+33     NA     287  9.7   74     6   2
+34     NA     242 16.1   67     6   3
+35     NA     186  9.2   84     6   4
+36     NA     220  8.6   85     6   5
+37     NA     264 14.3   79     6   6
+38     29     127  9.7   82     6   7
+39     NA     273  6.9   87     6   8
+40     71     291 13.8   90     6   9
+41     39     323 11.5   87     6  10
+42     NA     259 10.9   93     6  11
+43     NA     250  9.2   92     6  12
+44     23     148  8.0   82     6  13
+45     NA     332 13.8   80     6  14
+46     NA     322 11.5   79     6  15
+47     21     191 14.9   77     6  16
+48     37     284 20.7   72     6  17
+49     20      37  9.2   65     6  18
+50     12     120 11.5   73     6  19
+51     13     137 10.3   76     6  20
+52     NA     150  6.3   77     6  21
+53     NA      59  1.7   76     6  22
+54     NA      91  4.6   76     6  23
+55     NA     250  6.3   76     6  24
+56     NA     135  8.0   75     6  25
+57     NA     127  8.0   78     6  26
+58     NA      47 10.3   73     6  27
+59     NA      98 11.5   80     6  28
+60     NA      31 14.9   77     6  29
+61     NA     138  8.0   83     6  30
+62    135     269  4.1   84     7   1
+63     49     248  9.2   85     7   2
+64     32     236  9.2   81     7   3
+65     NA     101 10.9   84     7   4
+66     64     175  4.6   83     7   5
+67     40     314 10.9   83     7   6
+68     77     276  5.1   88     7   7
+69     97     267  6.3   92     7   8
+70     97     272  5.7   92     7   9
+71     85     175  7.4   89     7  10
+72     NA     139  8.6   82     7  11
+73     10     264 14.3   73     7  12
+74     27     175 14.9   81     7  13
+75     NA     291 14.9   91     7  14
+76      7      48 14.3   80     7  15
+77     48     260  6.9   81     7  16
+78     35     274 10.3   82     7  17
+79     61     285  6.3   84     7  18
+80     79     187  5.1   87     7  19
+81     63     220 11.5   85     7  20
+82     16       7  6.9   74     7  21
+83     NA     258  9.7   81     7  22
+84     NA     295 11.5   82     7  23
+85     80     294  8.6   86     7  24
+86    108     223  8.0   85     7  25
+87     20      81  8.6   82     7  26
+88     52      82 12.0   86     7  27
+89     82     213  7.4   88     7  28
+90     50     275  7.4   86     7  29
+91     64     253  7.4   83     7  30
+92     59     254  9.2   81     7  31
+93     39      83  6.9   81     8   1
+94      9      24 13.8   81     8   2
+95     16      77  7.4   82     8   3
+96     78      NA  6.9   86     8   4
+97     35      NA  7.4   85     8   5
+98     66      NA  4.6   87     8   6
+99    122     255  4.0   89     8   7
+100    89     229 10.3   90     8   8
+101   110     207  8.0   90     8   9
+102    NA     222  8.6   92     8  10
+103    NA     137 11.5   86     8  11
+104    44     192 11.5   86     8  12
+105    28     273 11.5   82     8  13
+106    65     157  9.7   80     8  14
+107    NA      64 11.5   79     8  15
+108    22      71 10.3   77     8  16
+109    59      51  6.3   79     8  17
+110    23     115  7.4   76     8  18
+111    31     244 10.9   78     8  19
+112    44     190 10.3   78     8  20
+113    21     259 15.5   77     8  21
+114     9      36 14.3   72     8  22
+115    NA     255 12.6   75     8  23
+116    45     212  9.7   79     8  24
+117   168     238  3.4   81     8  25
+118    73     215  8.0   86     8  26
+119    NA     153  5.7   88     8  27
+120    76     203  9.7   97     8  28
+121   118     225  2.3   94     8  29
+122    84     237  6.3   96     8  30
+123    85     188  6.3   94     8  31
+124    96     167  6.9   91     9   1
+125    78     197  5.1   92     9   2
+126    73     183  2.8   93     9   3
+127    91     189  4.6   93     9   4
+128    47      95  7.4   87     9   5
+129    32      92 15.5   84     9   6
+130    20     252 10.9   80     9   7
+131    23     220 10.3   78     9   8
+132    21     230 10.9   75     9   9
+133    24     259  9.7   73     9  10
+134    44     236 14.9   81     9  11
+135    21     259 15.5   76     9  12
+136    28     238  6.3   77     9  13
+137     9      24 10.9   71     9  14
+138    13     112 11.5   71     9  15
+139    46     237  6.9   78     9  16
+140    18     224 13.8   67     9  17
+141    13      27 10.3   76     9  18
+142    24     238 10.3   68     9  19
+143    16     201  8.0   82     9  20
+144    13     238 12.6   64     9  21
+145    23      14  9.2   71     9  22
+146    36     139 10.3   81     9  23
+147     7      49 10.3   69     9  24
+148    14      20 16.6   63     9  25
+149    30     193  6.9   70     9  26
+150    NA     145 13.2   77     9  27
+151    14     191 14.3   75     9  28
+152    18     131  8.0   76     9  29
+153    20     223 11.5   68     9  30
+> data[[-1]]
+Error in .subset2(x, i, exact = exact) : 
+  attempt to select more than one element
+> data[[,-1]]
+Error in .subset2(x, ..2, exact = exact) : 
+  attempt to select more than one element
+> data[[,151]]
+Error in .subset2(x, ..2, exact = exact) : subscript out of bounds
+> data[[151,]]
+Error in `[[.data.frame`(data, 151, ) : 
+  argument "..2" is missing, with no default
+> data[[151,1]]
+[1] 14
+> data[[152,1]]
+[1] 18
+> data[[152:153,1:6]]
+Error in .subset2(x, ..2, exact = exact) : 
+  recursive indexing failed at level 2
+> data[[152:153,1]]
+Error in col[[i, exact = exact]] : 
+  attempt to select more than one element
+> data[[152,1]]
+[1] 18
+> data[152]
+Error in `[.data.frame`(data, 152) : undefined columns selected
+> data[[152]]
+Error in .subset2(x, i, exact = exact) : subscript out of bounds
+> data[47]
+Error in `[.data.frame`(data, 47) : undefined columns selected
+> data["Ozone"]
+    Ozone
+1      41
+2      36
+3      12
+4      18
+5      NA
+6      28
+7      23
+8      19
+9       8
+10     NA
+11      7
+12     16
+13     11
+14     14
+15     18
+16     14
+17     34
+18      6
+19     30
+20     11
+21      1
+22     11
+23      4
+24     32
+25     NA
+26     NA
+27     NA
+28     23
+29     45
+30    115
+31     37
+32     NA
+33     NA
+34     NA
+35     NA
+36     NA
+37     NA
+38     29
+39     NA
+40     71
+41     39
+42     NA
+43     NA
+44     23
+45     NA
+46     NA
+47     21
+48     37
+49     20
+50     12
+51     13
+52     NA
+53     NA
+54     NA
+55     NA
+56     NA
+57     NA
+58     NA
+59     NA
+60     NA
+61     NA
+62    135
+63     49
+64     32
+65     NA
+66     64
+67     40
+68     77
+69     97
+70     97
+71     85
+72     NA
+73     10
+74     27
+75     NA
+76      7
+77     48
+78     35
+79     61
+80     79
+81     63
+82     16
+83     NA
+84     NA
+85     80
+86    108
+87     20
+88     52
+89     82
+90     50
+91     64
+92     59
+93     39
+94      9
+95     16
+96     78
+97     35
+98     66
+99    122
+100    89
+101   110
+102    NA
+103    NA
+104    44
+105    28
+106    65
+107    NA
+108    22
+109    59
+110    23
+111    31
+112    44
+113    21
+114     9
+115    NA
+116    45
+117   168
+118    73
+119    NA
+120    76
+121   118
+122    84
+123    85
+124    96
+125    78
+126    73
+127    91
+128    47
+129    32
+130    20
+131    23
+132    21
+133    24
+134    44
+135    21
+136    28
+137     9
+138    13
+139    46
+140    18
+141    13
+142    24
+143    16
+144    13
+145    23
+146    36
+147     7
+148    14
+149    30
+150    NA
+151    14
+152    18
+153    20
+> data["Ozone"][47]
+Error in `[.data.frame`(data["Ozone"], 47) : undefined columns selected
+> data["Ozone"][[47]]
+Error in .subset2(x, i, exact = exact) : subscript out of bounds
+> is.na(data["Ozone"])
+       Ozone
+  [1,] FALSE
+  [2,] FALSE
+  [3,] FALSE
+  [4,] FALSE
+  [5,]  TRUE
+  [6,] FALSE
+  [7,] FALSE
+  [8,] FALSE
+  [9,] FALSE
+ [10,]  TRUE
+ [11,] FALSE
+ [12,] FALSE
+ [13,] FALSE
+ [14,] FALSE
+ [15,] FALSE
+ [16,] FALSE
+ [17,] FALSE
+ [18,] FALSE
+ [19,] FALSE
+ [20,] FALSE
+ [21,] FALSE
+ [22,] FALSE
+ [23,] FALSE
+ [24,] FALSE
+ [25,]  TRUE
+ [26,]  TRUE
+ [27,]  TRUE
+ [28,] FALSE
+ [29,] FALSE
+ [30,] FALSE
+ [31,] FALSE
+ [32,]  TRUE
+ [33,]  TRUE
+ [34,]  TRUE
+ [35,]  TRUE
+ [36,]  TRUE
+ [37,]  TRUE
+ [38,] FALSE
+ [39,]  TRUE
+ [40,] FALSE
+ [41,] FALSE
+ [42,]  TRUE
+ [43,]  TRUE
+ [44,] FALSE
+ [45,]  TRUE
+ [46,]  TRUE
+ [47,] FALSE
+ [48,] FALSE
+ [49,] FALSE
+ [50,] FALSE
+ [51,] FALSE
+ [52,]  TRUE
+ [53,]  TRUE
+ [54,]  TRUE
+ [55,]  TRUE
+ [56,]  TRUE
+ [57,]  TRUE
+ [58,]  TRUE
+ [59,]  TRUE
+ [60,]  TRUE
+ [61,]  TRUE
+ [62,] FALSE
+ [63,] FALSE
+ [64,] FALSE
+ [65,]  TRUE
+ [66,] FALSE
+ [67,] FALSE
+ [68,] FALSE
+ [69,] FALSE
+ [70,] FALSE
+ [71,] FALSE
+ [72,]  TRUE
+ [73,] FALSE
+ [74,] FALSE
+ [75,]  TRUE
+ [76,] FALSE
+ [77,] FALSE
+ [78,] FALSE
+ [79,] FALSE
+ [80,] FALSE
+ [81,] FALSE
+ [82,] FALSE
+ [83,]  TRUE
+ [84,]  TRUE
+ [85,] FALSE
+ [86,] FALSE
+ [87,] FALSE
+ [88,] FALSE
+ [89,] FALSE
+ [90,] FALSE
+ [91,] FALSE
+ [92,] FALSE
+ [93,] FALSE
+ [94,] FALSE
+ [95,] FALSE
+ [96,] FALSE
+ [97,] FALSE
+ [98,] FALSE
+ [99,] FALSE
+[100,] FALSE
+[101,] FALSE
+[102,]  TRUE
+[103,]  TRUE
+[104,] FALSE
+[105,] FALSE
+[106,] FALSE
+[107,]  TRUE
+[108,] FALSE
+[109,] FALSE
+[110,] FALSE
+[111,] FALSE
+[112,] FALSE
+[113,] FALSE
+[114,] FALSE
+[115,]  TRUE
+[116,] FALSE
+[117,] FALSE
+[118,] FALSE
+[119,]  TRUE
+[120,] FALSE
+[121,] FALSE
+[122,] FALSE
+[123,] FALSE
+[124,] FALSE
+[125,] FALSE
+[126,] FALSE
+[127,] FALSE
+[128,] FALSE
+[129,] FALSE
+[130,] FALSE
+[131,] FALSE
+[132,] FALSE
+[133,] FALSE
+[134,] FALSE
+[135,] FALSE
+[136,] FALSE
+[137,] FALSE
+[138,] FALSE
+[139,] FALSE
+[140,] FALSE
+[141,] FALSE
+[142,] FALSE
+[143,] FALSE
+[144,] FALSE
+[145,] FALSE
+[146,] FALSE
+[147,] FALSE
+[148,] FALSE
+[149,] FALSE
+[150,]  TRUE
+[151,] FALSE
+[152,] FALSE
+[153,] FALSE
+> is.na(data[["Ozone"]])
+  [1] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+ [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [25]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [37]  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE
+ [49] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [61]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+ [73] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE
+ [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [97] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE
+[109] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE
+[121] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[145] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+> table(is.na(data[["Ozone"]]))
+
+FALSE  TRUE 
+  116    37 
+> table(is.na(data["Ozone"]))
+
+FALSE  TRUE 
+  116    37 
+> bad = is.na(data["Ozone"])
+> data["Ozone"][!bad]
+  [1]  41  36  12  18  28  23  19   8   7  16  11  14  18  14  34   6  30  11
+ [19]   1  11   4  32  23  45 115  37  29  71  39  23  21  37  20  12  13 135
+ [37]  49  32  64  40  77  97  97  85  10  27   7  48  35  61  79  63  16  80
+ [55] 108  20  52  82  50  64  59  39   9  16  78  35  66 122  89 110  44  28
+ [73]  65  22  59  23  31  44  21   9  45 168  73  76 118  84  85  96  78  73
+ [91]  91  47  32  20  23  21  24  44  21  28   9  13  46  18  13  24  16  13
+[109]  23  36   7  14  30  14  18  20
+> mean(data["Ozone"][!bad])
+[1] 42.12931
+> mean(data["Ozone"][!bad])
+[1] 42.12931
+> subset(data, Ozone>31, Temp > 90)
+data frame with 0 columns and 58 rows
+> data_sub = subset(data, Ozone>31, Temp > 90)
+> mean(data_sub["Solar.R"])
+Error in `[.data.frame`(data_sub, "Solar.R") : undefined columns selected
+> data_sub
+data frame with 0 columns and 58 rows
+> data_sub = subset(data, Ozone>31, Temp > 90, select=Solar.R)
+Error in `[.data.frame`(x, r, vars, drop = drop) : 
+  object 'Temp' not found
+> data_sub = subset(data, Ozone>31, select=c(Temp,Solar.R))
+> data_sub
+    Temp Solar.R
+1     67     190
+2     72     118
+17    66     307
+24    61      92
+29    81     252
+30    79     223
+31    76     279
+40    90     291
+41    87     323
+48    72     284
+62    84     269
+63    85     248
+64    81     236
+66    83     175
+67    83     314
+68    88     276
+69    92     267
+70    92     272
+71    89     175
+77    81     260
+78    82     274
+79    84     285
+80    87     187
+81    85     220
+85    86     294
+86    85     223
+88    86      82
+89    88     213
+90    86     275
+91    83     253
+92    81     254
+93    81      83
+96    86      NA
+97    85      NA
+98    87      NA
+99    89     255
+100   90     229
+101   90     207
+104   86     192
+106   80     157
+109   79      51
+112   78     190
+116   79     212
+117   81     238
+118   86     215
+120   97     203
+121   94     225
+122   96     237
+123   94     188
+124   91     167
+125   92     197
+126   93     183
+127   93     189
+128   87      95
+129   84      92
+134   81     236
+139   78     237
+146   81     139
+> data_sub2 = subset(data_sub, Temp>90, select=Solar.R)
+> data_sub2
+    Solar.R
+69      267
+70      272
+120     203
+121     225
+122     237
+123     188
+124     167
+125     197
+126     183
+127     189
+> mean(data_sub2)
+[1] NA
+Warning message:
+In mean.default(data_sub2) :
+  argument is not numeric or logical: returning NA
+> mean(data_sub2["Solar.R"])
+[1] NA
+Warning message:
+In mean.default(data_sub2["Solar.R"]) :
+  argument is not numeric or logical: returning NA
+> data_sub2["Solar.R"]
+    Solar.R
+69      267
+70      272
+120     203
+121     225
+122     237
+123     188
+124     167
+125     197
+126     183
+127     189
+> data_sub2[["Solar.R"]]
+ [1] 267 272 203 225 237 188 167 197 183 189
+> mean(data_sub2[["Solar.R"]])
+[1] 212.8
+> subset(data, Month==6, subset=Temp)
+Error in subset.data.frame(data, Month == 6, subset = Temp) : 
+  'subset' must be logical
+> subset(data, Month==6, select=Temp)
+   Temp
+32   78
+33   74
+34   67
+35   84
+36   85
+37   79
+38   82
+39   87
+40   90
+41   87
+42   93
+43   92
+44   82
+45   80
+46   79
+47   77
+48   72
+49   65
+50   73
+51   76
+52   77
+53   76
+54   76
+55   76
+56   75
+57   78
+58   73
+59   80
+60   77
+61   83
+> mean(subset(data, Month==6, select=Temp))
+[1] NA
+Warning message:
+In mean.default(subset(data, Month == 6, select = Temp)) :
+  argument is not numeric or logical: returning NA
+> mean(subset(data, Month==6, select=Temp)["Temp"])
+[1] NA
+Warning message:
+In mean.default(subset(data, Month == 6, select = Temp)["Temp"]) :
+  argument is not numeric or logical: returning NA
+> mean(subset(data, Month==6, select=Temp)[["Temp"]])
+[1] 79.1
+> mean(subset(data, Month==5, select=Ozone)[["Ozone"]])
+[1] NA
+> subset(data, Month==5, select=Ozone)[["Ozone"]]
+ [1]  41  36  12  18  NA  28  23  19   8  NA   7  16  11  14  18  14  34   6
+[19]  30  11   1  11   4  32  NA  NA  NA  23  45 115  37
+> max(subset(data, Month==5, select=Ozone)[["Ozone"]])
+[1] NA
+> which.max(subset(data, Month==5, select=Ozone)[["Ozone"]])
+[1] 30
+> max(subset(data, Month==5, select=Ozone)[["Ozone"]])
+[1] NA
+> max(subset(data, Month==5, select=Ozone)[["Ozone"]], na.rm=TRUE)
+[1] 115
+> data[c(152,153),1:6]
+    Ozone Solar.R Wind Temp Month Day
+152    18     131  8.0   76     9  29
+153    20     223 11.5   68     9  30
+> 
