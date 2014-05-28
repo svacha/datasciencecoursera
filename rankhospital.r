@@ -1,10 +1,14 @@
 rankhospital <- function(state, outcome, num = "best") {
 	## Read outcome data
 	outcomes <- read.csv("rprog-data-ProgAssignment3-data/outcome-of-care-measures.csv", colClasses="character")
-	## TODO (??): set the appropriate columns with as.numeric
-	
+
+	## Get a vector of the states in the dataset
+	## fyi: states.abb won't work because it doesn't include 'DC'
+	states <- unique(outcomes$State)
+
+
 	## Check that state and outcome are valid
-	if(!(state %in% state.abb)) {
+	if(!(state %in% states)) {
 		## message("invalid state")
 		stop("invalid state")
 	}
@@ -13,9 +17,7 @@ rankhospital <- function(state, outcome, num = "best") {
 		## message("invalid outcome")
 		stop("invalid outcome")
 	}
-	
-	## Set the num 
-	
+
 	## Return hospital name in that state with lowest 30-day death
 	## rate
 	
